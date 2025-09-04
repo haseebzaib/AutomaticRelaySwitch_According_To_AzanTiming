@@ -1,0 +1,47 @@
+# @file rtcmcp7940.yaml
+# @brief Device tree binding for Microchip MCP7940 I2C-based RTC.
+#
+# This binding file defines the configuration for the Microchip MCP7940
+# real-time clock (RTC) connected via I2C. It specifies the compatible
+# string and includes references to standard I2C device bindings.
+#
+# @compatible zephyr,rtcmcp7940
+# @include i2c-device.yaml
+#
+# @details
+# The MCP7940 RTC binding allows for configuration of its interrupt GPIO pin
+# for alarm notifications. The binding leverages the Zephyr I2C framework to
+# communicate with the RTC over the I2C bus.
+#
+# Example Usage:
+# ```dts
+# rtcmcp7940@6F {
+#     compatible = "zephyr,rtcmcp7940";
+#     reg = <0x6F>;
+#     label = "RTC";
+#     int-gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;
+# };
+# ```
+#
+# @note Ensure that the I2C bus is enabled in the device tree and the
+#       MCP7940 is connected with the appropriate interrupt GPIO configured.
+#
+# @author Haseeb Zaib
+# @contact hzaib76@gmail.com
+# @date 2024-12-19
+
+
+description: Microchip I2C based RTC 
+
+compatible: "zephyr,rtcmcp7940"
+
+include: [ i2c-device.yaml ]
+
+
+properties: 
+  int-gpios:
+    type: phandle-array
+    description: |
+      Host input connect to MCP7940 MFP open drain output pin
+      
+      Notifies when an alarm has triggered by asserting this line

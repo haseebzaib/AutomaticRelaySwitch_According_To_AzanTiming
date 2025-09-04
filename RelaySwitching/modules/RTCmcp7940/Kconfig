@@ -1,0 +1,26 @@
+menuconfig CUSTOM_RTCMCP7940
+    bool "RealTime clock with battery backed SRAM"
+    select I2C
+    help
+      Enable the RTC mcp7940 custom driver.
+
+if CUSTOM_RTCMCP7940
+
+config CUSTOM_RTCMCP7940_LOG_LEVEL
+    int "Log level for custom driver RTCmcp7940"
+    default 0
+    depends on LOG
+    help
+      Set the log level for RTCmcp7940 driver (0=off, 1=error, 2=warning, 3=info, 4=debug).
+
+
+config CUSTOM_RTCMCP7940_INIT_PRIORITY
+    int "Initialization priority for RTC MCP7940 driver"
+    default 90
+    range 0 99
+    help
+      Set the initialization priority for the RTC MCP7940 driver.
+      Lower numbers mean higher priority.
+
+
+endif

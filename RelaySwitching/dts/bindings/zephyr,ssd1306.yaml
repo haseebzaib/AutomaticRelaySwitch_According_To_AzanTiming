@@ -1,0 +1,5 @@
+description: Microchip I2C based RTC 
+
+compatible: "zephyr,ssd1306"
+
+include: [ i2c-device.yaml ]

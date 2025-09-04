@@ -1,0 +1,6 @@
+if (CONFIG_CUSTOM_SSD1306)
+	zephyr_include_directories(./)
+	zephyr_library()
+	zephyr_library_sources(ssd1306.c)
+	zephyr_library_sources(ssd1306_fonts.c)
+endif()

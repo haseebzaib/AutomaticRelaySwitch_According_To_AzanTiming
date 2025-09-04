@@ -1,0 +1,26 @@
+menuconfig CUSTOM_SSD1306
+    bool "SSD1306 display"
+    select I2C
+    help
+      Enable the display custom driver.
+
+if CUSTOM_SSD1306
+
+config CUSTOM_SSD1306_LOG_LEVEL
+    int "Log level for custom driver ssd1306"
+    default 0
+    depends on LOG
+    help
+      Set the log level for ssd1306 driver (0=off, 1=error, 2=warning, 3=info, 4=debug).
+
+
+config CUSTOM_SSD1306_INIT_PRIORITY
+    int "Initialization priority for RTC MCP7940 driver"
+    default 90
+    range 0 99
+    help
+      Set the initialization priority for the ssd1306 driver.
+      Lower numbers mean higher priority.
+
+
+endif

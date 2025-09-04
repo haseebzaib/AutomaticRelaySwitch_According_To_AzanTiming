@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "log.h": "c",
+        "gpio.h": "c",
+        "timeutil.h": "c",
+        "pray2_reader.h": "c",
+        "typeinfo": "c"
+    },
+    "nrf-connect.debugging.bindings": {
+        "${workspaceFolder}/build/RelaySwitching": "Launch RelaySwitching"
+    }
+}

@@ -1,0 +1,2 @@
+rsource "RTCmcp7940/Kconfig"
+rsource "ssd1306/Kconfig"
